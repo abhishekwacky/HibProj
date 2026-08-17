@@ -24,14 +24,28 @@ public class Main {
         l2.setModel("Probook");
         l2.setRam(16);
 
+        Laptop l3 = new Laptop();
+        l3.setLid(3);
+        l3.setBrand("Dell");
+        l3.setModel("Notebook");
+        l3.setRam(32);
+
         Alien a1 = new Alien();
         a1.setAid(101);
         a1.setAname("Abhishek");
         a1.setTech("Java");
-        a1.setLaptops(Arrays.asList(l1, l2));
 
-        l1.setAlien(a1);
-        l2.setAlien(a1);
+
+        Alien a2 = new Alien();
+        a2.setAid(102);
+        a2.setAname("Kunal");
+        a2.setTech("AI");
+
+
+        a1.setLaptops(Arrays.asList(l1, l2));
+        a2.setLaptops(Arrays.asList(l3));
+
+
 
         SessionFactory sf = new Configuration()
                 .addAnnotatedClass(Laptop.class)
@@ -44,15 +58,22 @@ public class Main {
 
         session.persist(l1);
         session.persist(l2);
-        session.persist(a1);
+        session.persist(l3);
 
-        Alien a2 = session.find(Alien.class, 101);
+        session.persist(a1);
+        session.persist(a2);
+
+
         transaction.commit();
 
 
         session.close();
+
+        Session session1 = sf.openSession();
+        Alien a5 = session1.find(Alien.class, 102);
+        //        System.out.println(a5);
+        session1.close();
         sf.close();
-        System.out.println(a2);
 
     }
 }

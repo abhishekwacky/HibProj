@@ -1,9 +1,8 @@
 package org.demo;
 
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 //@Embeddable
 //when we do not want to create a new table insted we want to embedd this into an existing table
@@ -15,8 +14,6 @@ public class Laptop {
     private String brand;
     private String model;
     private int ram;
-    @ManyToOne
-    private Alien alien;
 
     public int getLid() {
         return lid;
@@ -50,13 +47,6 @@ public class Laptop {
         this.ram = ram;
     }
 
-    public Alien getAlien() {
-        return alien;
-    }
-
-    public void setAlien(Alien alien) {
-        this.alien = alien;
-    }
 
     @Override
     public String toString() {

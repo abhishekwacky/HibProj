@@ -11,7 +11,8 @@ public class Alien {
     private int aid;
     private String aname;
     private String tech;
-    @OneToMany(mappedBy = "alien")
+    @OneToMany(fetch = FetchType.EAGER)
+    // When you have collection inside Entity then by default it is implementing Lazy fetch
     private List<Laptop> laptops;
 
     public int getAid() {

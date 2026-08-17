@@ -10,6 +10,6 @@
         <property name="hibernate.hbm2ddl.auto">create</property>
 <!--        Below two property is for showing sql query in formatted way on the screen like which query behind the scene is running to perform the operation-->
         <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.format_sql">true</property>
+<!--        <property name="hibernate.format_sql">true</property>-->
     </session-factory>
 </hibernate-configuration>
