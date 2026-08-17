@@ -1,0 +1,15 @@
+<hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
+    <session-factory>
+<!--        First four property is mandatory configuration for hibernate to connect with database-->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/abhihibernate</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">password</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+<!--        Below line means when you don't find the table then create a new table(avoid update in production code -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+<!--        Below two property is for showing sql query in formatted way on the screen like which query behind the scene is running to perform the operation-->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+    </session-factory>
+</hibernate-configuration>
