@@ -21,22 +21,9 @@ public class Main {
                 .buildSessionFactory();
         Session session = sf.openSession();
 
-        // select * from laptop where ram=16; -> SQL
-        // from laptop where ram=16; -> HQL
-
-        String brand = "Apple";
-        Query query = session.createQuery("select brand, model from Laptop where brand like ?1");
-        query.setParameter(1, brand);
-        List<Object[]> laptops = query.getResultList();
-
-        //Laptop l5 = session.find(Laptop.class,4);
-
-        for (Object[] data : laptops) {
-            System.out.println(data[0] + " " + data[1]);
-        }
-
+        Laptop laptop = session.getReference(Laptop.class, 1);
+//        System.out.println(laptop);
         session.close();
         sf.close();
-//        System.out.println(laptops);
     }
 }

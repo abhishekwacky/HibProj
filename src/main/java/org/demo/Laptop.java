@@ -47,7 +47,6 @@ public class Laptop {
         this.ram = ram;
     }
 
-
     @Override
     public String toString() {
         return "Laptop{" +
